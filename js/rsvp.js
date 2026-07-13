@@ -6,6 +6,8 @@ const Wishes = {
   db: null,
   unsubscribe: null,
   isSubmitting: false,
+  retryTimeout: null,
+  retryDelay: 3000, // ms — doubles on each failure, capped at 30s
 
   init() {
     this.bindWishForm();
@@ -26,6 +28,12 @@ const Wishes = {
     const grid = document.getElementById('wishes-grid');
     if (!grid) return;
 
+    // Cancel any existing listener before creating a new one
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+    }
+
     this.showLoading();
 
     this.unsubscribe = this.db
@@ -33,6 +41,10 @@ const Wishes = {
       .orderBy('createdAt', 'desc')
       .onSnapshot(
         (snapshot) => {
+          // Reset retry delay on success
+          this.retryDelay = 3000;
+          clearTimeout(this.retryTimeout);
+
           this.hideLoading();
           const wishes = snapshot.docs.map(doc => ({
             id: doc.id,
@@ -44,6 +56,13 @@ const Wishes = {
           console.error('Wishes listener failed:', err);
           this.hideLoading();
           this.showError();
+
+          // Auto-retry with exponential backoff (max 30s)
+          clearTimeout(this.retryTimeout);
+          this.retryTimeout = setTimeout(() => {
+            this.retryDelay = Math.min(this.retryDelay * 2, 30000);
+            this.listenForWishes();
+          }, this.retryDelay);
         }
       );
   },
@@ -86,14 +105,15 @@ const Wishes = {
         text,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       });
-
-      form.reset();
-      if (counter) counter.textContent = '0';
       showToast(LanguageManager.t('toastWish'));
     } catch (err) {
       console.error('Wish submit failed:', err);
       showToast(LanguageManager.t('toastError'));
     } finally {
+      // Always clear the form and re-enable the button,
+      // whether the submit succeeded or failed
+      form.reset();
+      if (counter) counter.textContent = '0';
       this.isSubmitting = false;
       if (submitBtn) submitBtn.disabled = false;
     }
