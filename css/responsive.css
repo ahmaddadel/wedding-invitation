@@ -240,6 +240,10 @@
     grid-template-columns: 1fr;
   }
 
+  .henna-details-grid {
+    grid-template-columns: 1fr;
+  }
+
   .radio-group {
     flex-direction: column;
     gap: 12px;

@@ -1,10 +1,12 @@
 /**
- * Countdown Timer
- * Wedding Date: August 27, 2026 at 9:00 PM (Riyadh UTC+3)
+ * Countdown Timers
+ * Wedding Date: August 27, 2026 at 9:00 PM (UTC+3)
+ * Henna Night:  August 26, 2026 at 8:00 PM (UTC+3)
  */
 
 const Countdown = {
   weddingDate: new Date('2026-08-27T21:00:00+03:00'),
+  hennaDate: new Date('2026-08-26T20:00:00+03:00'),
   interval: null,
 
   init() {
@@ -14,11 +16,21 @@ const Countdown = {
 
   update() {
     const now = new Date();
-    const diff = this.weddingDate - now;
+
+    this.updateTimer(now, this.weddingDate, {
+      days: 'days', hours: 'hours', minutes: 'minutes', seconds: 'seconds'
+    });
+
+    this.updateTimer(now, this.hennaDate, {
+      days: 'henna-days', hours: 'henna-hours', minutes: 'henna-minutes', seconds: 'henna-seconds'
+    });
+  },
+
+  updateTimer(now, targetDate, ids) {
+    const diff = targetDate - now;
 
     if (diff <= 0) {
-      this.setValues(0, 0, 0, 0);
-      clearInterval(this.interval);
+      this.setValues(0, 0, 0, 0, ids);
       return;
     }
 
@@ -27,15 +39,15 @@ const Countdown = {
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-    this.setValues(days, hours, minutes, seconds);
+    this.setValues(days, hours, minutes, seconds, ids);
   },
 
-  setValues(days, hours, minutes, seconds) {
+  setValues(days, hours, minutes, seconds, ids) {
     const els = {
-      days: document.getElementById('days'),
-      hours: document.getElementById('hours'),
-      minutes: document.getElementById('minutes'),
-      seconds: document.getElementById('seconds')
+      days: document.getElementById(ids.days),
+      hours: document.getElementById(ids.hours),
+      minutes: document.getElementById(ids.minutes),
+      seconds: document.getElementById(ids.seconds)
     };
 
     if (els.days) els.days.textContent = String(days).padStart(2, '0');

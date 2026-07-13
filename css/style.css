@@ -713,6 +713,127 @@ ul { list-style: none; }
   justify-content: center;
 }
 
+/* Henna Night Section */
+.henna {
+  background: linear-gradient(
+    180deg,
+    var(--bg-primary) 0%,
+    rgba(201, 169, 98, 0.06) 40%,
+    rgba(212, 165, 165, 0.06) 70%,
+    var(--bg-secondary) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.henna::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(201, 169, 98, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.henna .section-title {
+  color: var(--color-gold);
+}
+
+.henna-description {
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.henna-desc-card {
+  text-align: center;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 169, 98, 0.25);
+}
+
+.henna-desc-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(201, 169, 98, 0.05) 0%, rgba(212, 165, 165, 0.05) 100%);
+  pointer-events: none;
+}
+
+.henna-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--color-white);
+  font-size: 1.8rem;
+  box-shadow: 0 8px 24px rgba(201, 169, 98, 0.3);
+}
+
+.henna-desc-card p {
+  font-size: 1.05rem;
+  color: var(--color-text-light);
+  line-height: 1.9;
+  position: relative;
+}
+
+.henna-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.henna-details-grid .glass-card {
+  text-align: center;
+  padding: 28px 20px;
+}
+
+.henna-card-icon {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light)) !important;
+  box-shadow: 0 4px 16px rgba(201, 169, 98, 0.25);
+}
+
+.henna-details-grid h3 {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.henna-countdown-wrapper {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.henna-countdown-label {
+  font-size: 1.2rem;
+  color: var(--color-gold);
+  margin-bottom: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.henna-countdown-item {
+  border: 1px solid rgba(201, 169, 98, 0.2) !important;
+}
+
+.henna-countdown-item .countdown-number {
+  color: var(--color-gold);
+}
+
+.henna-countdown-item .countdown-label {
+  color: var(--color-dusty-pink-dark);
+}
+
 /* Countdown */
 .countdown {
   background: var(--bg-secondary);

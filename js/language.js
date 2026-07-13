@@ -23,7 +23,7 @@ const translations = {
     footerMonogram: 'محمد 🤍 روضة',
     pageTitle: 'محمد 🤍 روضة | دعوة زفاف',
     pageDescription: 'دعوة زفاف محمد 🤍 روضة — 27 أغسطس 2026',
-    heroCardLabel: 'أنتم مدعوون',
+    heroCardLabel: 'أنتم مدعوون لحضور ليلة الزفاف',
     heroSubtitle: 'يسرنا دعوتكم لمشاركتنا فرحتنا',
     heroBtn: 'عرض الدعوة',
     invitationTag: 'احفظوا التاريخ',
@@ -122,7 +122,19 @@ const translations = {
     noWishes: 'كن أول من يكتب تمنية جميلة!',
     wishesLoading: 'جاري تحميل التمنيات...',
     wishesError: 'تعذر تحميل التمنيات. حاول مرة أخرى لاحقاً.',
-    wishesNotConfigured: 'التمنيات المشتركة تحتاج إعداد Firebase. راجع ملف firebase-config.js'
+    wishesNotConfigured: 'التمنيات المشتركة تحتاج إعداد Firebase. راجع ملف firebase-config.js',
+    navHenna: 'ليلة الحنة',
+    hennaTag: 'ليلة الحنة',
+    hennaTitle: 'ليلة الحنة',
+    hennaSubtitle: 'ليلة من الفرح والبهجة قبل ليلة الزفاف',
+    hennaDate: 'الأربعاء، 26 أغسطس 2026',
+    hennaTime: '8:00 مساءً',
+    hennaVenue: 'قاعة ريفيرا',
+    hennaDateLabel: 'تاريخ الحنة',
+    hennaTimeLabel: 'وقت الحنة',
+    hennaVenueLabel: 'المكان',
+    hennaCountdownTitle: 'العد التنازلي لليلة الحنة',
+    hennaDesc: 'انضموا إلينا في ليلة الحنة المميزة، ليلة مليئة بالموسيقى والرقص والاحتفال بالعروسين قبل يوم الزفاف.'
   },
   en: {
     loading: 'Loading...',
@@ -143,7 +155,7 @@ const translations = {
     footerMonogram: 'Mohammed 🤍 Rawdah',
     pageTitle: 'Mohammed 🤍 Rawdah | Wedding Invitation',
     pageDescription: 'Mohammed 🤍 Rawdah Wedding Invitation — August 27, 2026',
-    heroCardLabel: "You're Invited",
+    heroCardLabel: "You're Invited to the Wedding Night",
     heroSubtitle: 'We joyfully invite you to share in our happiness',
     heroBtn: 'View Invitation',
     invitationTag: 'Save the Date',
@@ -242,7 +254,19 @@ const translations = {
     noWishes: 'Be the first to write a beautiful wish!',
     wishesLoading: 'Loading wishes...',
     wishesError: 'Could not load wishes. Please try again later.',
-    wishesNotConfigured: 'Shared wishes require Firebase setup. See firebase-config.js'
+    wishesNotConfigured: 'Shared wishes require Firebase setup. See firebase-config.js',
+    navHenna: 'Henna Night',
+    hennaTag: 'Henna Night',
+    hennaTitle: 'Henna Night',
+    hennaSubtitle: 'A night of joy and celebration before the wedding',
+    hennaDate: 'Wednesday, August 26, 2026',
+    hennaTime: '8:00 PM',
+    hennaVenue: 'Riviera Hall',
+    hennaDateLabel: 'Henna Date',
+    hennaTimeLabel: 'Henna Time',
+    hennaVenueLabel: 'Venue',
+    hennaCountdownTitle: 'Henna Night Countdown',
+    hennaDesc: 'Join us for a magical Henna Night, an evening filled with music, dancing, and celebration of the bride and groom before the big day.'
   }
 };
 
